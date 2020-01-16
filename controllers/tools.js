@@ -2,7 +2,11 @@ const toolModel = require('../models/tools');
 
 const ToolsController = {
     getTools(req, res) {
-        const query = req.query.tag ? { tags: req.query.tag } : {};
+        const tag =  req.query.tag;
+        const query = {userId:req.userId};
+
+        if(tag)
+            query.tags = tag;
 
         toolModel.find(query, (err, data) => {
             if (err) {
@@ -28,11 +32,17 @@ const ToolsController = {
     },
 
     createTool(req, res) {
-        const tool = new toolModel(req.body);
+        let tool = req.body;
+        tool.userId = req.userId;
+        tool = new toolModel(req.body);
         tool.save((err, data) => {
             if (err) {
                 return res.status(500).json({ message: err.message });
             }
+            
+            data = data.toObject();
+            delete data.userId;
+
             res.status(201).send(data);
         });
     },

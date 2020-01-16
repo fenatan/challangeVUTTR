@@ -14,7 +14,7 @@ npm start
 A API estará disponível em **localhost:3000**
 
 ### DOCUMENTÇÃO
-**https://app.swaggerhub.com/apis/fenatan/VUTTR/1.0.0**
+**https://app.swaggerhub.com/apis-docs/fenatan/VUTTR/1.0.0**
 
 ### DEPLOY
 Foi realizado o deploy dessa API no heroku.

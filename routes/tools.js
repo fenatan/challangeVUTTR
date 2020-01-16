@@ -5,9 +5,9 @@ const toolsController = require('../controllers/tools')
 const authService = require('../services/auth');
 
 router.get('/', authService.authorize, toolsController.getTools);
-router.get('/:id', toolsController.getToolsById);
-router.post('/',authService.authorize, toolsController.createTool);
-router.put('/:id', toolsController.updateToolById);
-router.delete('/:id', toolsController.deleteToolById);
+router.get('/:id', authService.authorize, toolsController.getToolsById);
+router.post('/', authService.authorize, toolsController.createTool);
+router.put('/:id', authService.authorize, toolsController.updateToolById);
+router.delete('/:id', authService.authorize, toolsController.deleteToolById);
 
 module.exports = router;

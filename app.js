@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 
-mongoose.connect('mongodb://localhost:27017/my_database', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/testeVuttr', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 
 const toolsModel = require('./models/tools');
